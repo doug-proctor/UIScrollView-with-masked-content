@@ -7,5 +7,3 @@ Mimicks the scolling behaviour of the iOS8 Weather app (not to be confused with 
 ![](https://raw.githubusercontent.com/doug-proctor/UIScrollView-with-masked-content/master/screenshots/2.PNG)
 
 ![](https://raw.githubusercontent.com/doug-proctor/UIScrollView-with-masked-content/master/screenshots/3.PNG)
-
-![](https://raw.githubusercontent.com/doug-proctor/UIScrollView-with-masked-content/master/screenshots/4.PNG)
