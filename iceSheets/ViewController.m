@@ -25,7 +25,7 @@
     self.screenHeight = [UIScreen mainScreen].bounds.size.height;
     self.footerHeight = 50.0f;
     self.maskStartingY = 270.0f;  // Distance between top of scrolling content and top of screen
-    self.maskMaxTravellingDistance = 200.0f; // Distance the mask can move upwards before its content starts 'scrolling'
+    self.maskMaxTravellingDistance = 180.0f; // Distance the mask can move upwards before its content starts scrolling and gets clipped
     
     
     
@@ -170,19 +170,23 @@
     // The to achieve this effect, we must map the header's origin.y to the amount that the
     // scrollview has scrolled
     
+    CGRect newHeaderFrame;
+    CGFloat newHeaderY;
+    
     if (offsetY <= self.maskMaxTravellingDistance) {
         
-        CGRect newHeaderFrame = CGRectMake(self.header.frame.origin.x, 100 - (offsetY * 0.3), self.header.frame.size.width, self.header.frame.size.height);
+        newHeaderY = 100 - (offsetY * 0.5); // move at half the speed of scroll
+        newHeaderFrame = CGRectMake(self.header.frame.origin.x, newHeaderY, self.header.frame.size.width, self.header.frame.size.height);
         self.header.frame = newHeaderFrame;
         
+    } else {
+        
+        newHeaderY = 100 - (self.maskMaxTravellingDistance * 0.5);
+        newHeaderFrame = CGRectMake(self.header.frame.origin.x, newHeaderY, self.header.frame.size.width, self.header.frame.size.height);
+        self.header.frame = newHeaderFrame;
+
     }
 }
-
-
-
-
-
-
 
 
 - (void)didReceiveMemoryWarning {
@@ -191,18 +195,3 @@
 }
 
 @end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
