@@ -27,6 +27,8 @@
     self.maskStartingY = 270.0f;  // Distance between top of scrolling content and top of screen
     self.maskMaxTravellingDistance = 180.0f; // Distance the mask can move upwards before its content starts scrolling and gets clipped
     
+    self.view.backgroundColor = [UIColor colorWithRed:166/255.0f green:197/255.0f blue:255/255.0f alpha:1.0f]; // light blue
+    
     
     
     // Header. This will change size and postion as the scrollview scrolls
@@ -67,7 +69,6 @@
     for (int i = 0; i < 14; i++) {
         UILabel *bar = [[UILabel alloc] initWithFrame:CGRectMake(20, 0 + 52*i, self.screenWidth - 40, 45)];
         bar.text = [NSString stringWithFormat:@"bar no. %i", i + 1];
-        bar.backgroundColor = [UIColor darkGrayColor];
         [self.content addSubview:bar];
     }
     
